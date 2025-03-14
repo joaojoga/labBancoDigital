@@ -1,18 +1,71 @@
-## Getting Started
+# Banco Digital
 
-Welcome to the VS Code Java world. Here is a guideline to help you get started to write Java code in Visual Studio Code.
+Este é um projeto de um sistema bancário digital desenvolvido em Java, utilizando conceitos de Programação Orientada a Objetos (POO). O sistema permite a criação de contas, realização de transações bancárias e impressão de extratos.
 
-## Folder Structure
+## Tecnologias Utilizadas
+- **Java 17**
+- **Paradigma Orientado a Objetos**
+- **Herança e Polimorfismo**
 
-The workspace contains two folders by default, where:
+## Estrutura do Projeto
 
-- `src`: the folder to maintain sources
-- `lib`: the folder to maintain dependencies
+O projeto está organizado da seguinte maneira:
 
-Meanwhile, the compiled output files will be generated in the `bin` folder by default.
+```
+├── src/
+│   ├── Conta.java (classe abstrata base para as contas)
+│   ├── ContaCorrente.java (extende Conta, representa uma conta corrente)
+│   ├── ContaPoupanca.java (extende Conta, representa uma conta poupança)
+│   ├── Cliente.java (representa um cliente do banco)
+│   ├── IConta.java (interface que define os métodos das contas)
+│   ├── Banco.java (classe principal que gerencia as contas e clientes)
+│   ├── Main.java (classe principal que executa o sistema)
+```
 
-> If you want to customize the folder structure, open `.vscode/settings.json` and update the related settings there.
+## Funcionalidades
+- Criar contas bancárias (Conta Corrente e Conta Poupança).
+- Realizar operações bancárias como saque, depósito e transferência entre contas.
+- Gerar extrato bancário com informações do cliente, número da conta e saldo.
 
-## Dependency Management
+## Como Executar o Projeto
+1. Certifique-se de ter o **Java 17** instalado.
+2. Clone este repositório:
+   ```sh
+   git clone https://github.com/seu-usuario/banco-digital.git
+   ```
+3. Acesse a pasta do projeto:
+   ```sh
+   cd banco-digital
+   ```
+4. Compile o projeto:
+   ```sh
+   javac src/*.java
+   ```
+5. Execute o programa:
+   ```sh
+   java src.Main
+   ```
 
-The `JAVA PROJECTS` view allows you to manage your dependencies. More details can be found [here](https://github.com/microsoft/vscode-java-dependency#manage-dependencies).
+## Exemplo de Uso
+
+```java
+Cliente cliente = new Cliente("João");
+Conta contaCorrente = new ContaCorrente(cliente);
+contaCorrente.depositar(1000);
+contaCorrente.sacar(200);
+contaCorrente.imprimirExtrato();
+```
+
+Saída esperada:
+```
+=== Extrato da Conta Corrente ===
+Titular: João
+Agência: 1
+Número: 1
+Saldo: 800.00
+```
+
+## Contribuição
+Se você quiser contribuir, fique à vontade para abrir um Pull Request ou relatar problemas na aba de issues.
+
+
